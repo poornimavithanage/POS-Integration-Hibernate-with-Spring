@@ -6,7 +6,7 @@ import lk.ijse.dep.pos.dao.custom.CustomerDAO;
 import lk.ijse.dep.pos.dao.custom.ItemDAO;
 import lk.ijse.dep.pos.dao.custom.OrderDAO;
 import lk.ijse.dep.pos.dao.custom.OrderDetailDAO;
-import lk.ijse.dep.pos.db.HibernateUtil;
+
 import lk.ijse.dep.pos.entity.Item;
 import lk.ijse.dep.pos.entity.Order;
 import lk.ijse.dep.pos.entity.OrderDetail;
@@ -44,6 +44,7 @@ public class OrderBOImpl implements OrderBO { // , Temp
         this.orderDAO = DAOFactory.getInstance().getDAO(DAOType.ORDER);
     }*/
 
+    @Transactional(readOnly = true)
     public String getNewOrderId() throws Exception {
         String lastOrderId = orderDAO.getLastOrderId();
         if (lastOrderId == null) {

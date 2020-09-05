@@ -5,8 +5,9 @@ import lk.ijse.dep.pos.dao.custom.CustomerDAO;
 import lk.ijse.dep.pos.entity.Customer;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
+@Repository
 public class CustomerDAOImpl extends CrudDAOImpl<Customer,String> implements CustomerDAO {
 
     @Override

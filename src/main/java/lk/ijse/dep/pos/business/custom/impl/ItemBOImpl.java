@@ -2,7 +2,7 @@ package lk.ijse.dep.pos.business.custom.impl;
 
 import lk.ijse.dep.pos.business.custom.ItemBO;
 import lk.ijse.dep.pos.dao.custom.ItemDAO;
-import lk.ijse.dep.pos.db.HibernateUtil;
+
 import lk.ijse.dep.pos.entity.Item;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -21,7 +21,7 @@ public class ItemBOImpl implements ItemBO {
     @Autowired
     private ItemDAO itemDAO;
 
-
+@Transactional(readOnly = true)
     public String getNewItemCode() throws Exception {
         String lastItemCode = itemDAO.getLastItemCode();
         if (lastItemCode == null) {
@@ -41,6 +41,7 @@ public class ItemBOImpl implements ItemBO {
         }
     }
 
+    @Transactional(readOnly = true)
     public List<ItemTM> getAllItems() throws Exception {
         List<Item> allItems = itemDAO.findAll();
         List<ItemTM> items = new ArrayList<>();
