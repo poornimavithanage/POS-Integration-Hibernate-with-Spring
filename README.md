@@ -6,4 +6,7 @@
 3. Place orders
 4. Search orders
 #### Please make sure to include the following dependencies in the project folder of your local repository in order to operate and build the system appropriately.
+
+##### apache-maven-3.6.3-bin
+
 ##### This system works with Spring framework and Hibernate
